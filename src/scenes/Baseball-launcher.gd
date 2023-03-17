@@ -5,6 +5,8 @@ extends Node2D
 # var a = 2
 # var b = "text"
 export var TRAJECTORY_IS_PATH_CHANCE = 0.00
+export var BALL_VELOCITY :float = 2.5
+export var BALL_ANGLE_DEGREES = 45
 
 const Baseball = preload("res://scenes/Baseball.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -41,6 +43,7 @@ func generate_path():
 	
 func generate_random_velocity():
 	#print("physics based ball")
-	var launch_vector = Vector2(1.0,-2.5)
+	#var launch_vector = Vector2(1.0,-2.5)
+	var launch_vector = Vector2(BALL_VELOCITY,0).rotated( - BALL_ANGLE_DEGREES * PI/180)
 	
 	return launch_vector
