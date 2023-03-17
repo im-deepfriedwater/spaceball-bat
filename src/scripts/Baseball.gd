@@ -13,7 +13,7 @@ var current_velocity: Vector2
 var current_frame = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Setting timeout")
+	#print("Setting timeout")
 	var timer := Timer.new()
 	add_child(timer)
 	timer.one_shot = true
@@ -37,8 +37,8 @@ func _physics_process(_delta):
 		collision_shape.disabled = false 
 	
 	if !is_following_path && current_velocity:
-		print("physics step: ")
-		print(current_frame)
+		#print("physics step: ")
+		#print(current_frame)
 		#infinite inertia set to false, do we care about collsions with rigidbodies?
 		move_and_collide(current_velocity , false, true, false)
 		
@@ -48,7 +48,7 @@ func _physics_process(_delta):
 	
 
 func addVelocity( vel : Vector2 ):
-	print("adding velocity to baseball . . . ")
+	#print("adding velocity to baseball . . . ")
 	current_velocity = vel;
 	
 	
@@ -56,5 +56,5 @@ func addPath():
 	pass
 
 func on_timeout ():
-	print("removing ball")
+	#print("removing ball")
 	queue_free();

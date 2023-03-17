@@ -20,7 +20,7 @@ func _physics_process(_delta):
 		launch_baseball()
 
 func launch_baseball():
-	print("launching baseball bby")
+	#print("launching baseball bby")
 	#instanciate a baseball at pos
 	var baseball= Baseball.instance()
 	baseball.global_position = global_position
@@ -40,7 +40,7 @@ func generate_path():
 	pass
 	
 func generate_random_velocity():
-	print("physics based ball")
+	#print("physics based ball")
 	var launch_vector = Vector2(1.0,-2.5)
 	
 	return launch_vector
