@@ -14,9 +14,10 @@ export var flappy_vertical_max_speed: float =  55
 export var flappy_gravity: float = 105
 export var flappy_input_buffer_in_seconds: float = 0.25
 export var flappy_horizontal_impulse: float = 35
-export var flappy_horizontal_max_speed: float = 80
-export var flappy_friction: float = 55
-export var flappy_is_floaty_horizontal: bool = true
+export var flappy_horizontal_max_speed: float = 90
+export var flappy_horizontal_acceleration: float = 100
+export var flappy_friction: float = 60
+export var flappy_is_floaty_horizontal: bool = false
 onready var flappy_input_buffer_timer := $FlappyInputBufferTimer
 var flappy_is_input_buffering : bool = false
 # Flappy Movement End Region
@@ -47,6 +48,9 @@ func handle_linear_movement(delta: float, input_vector: Vector2):
 
 # TODO
 func handle_flappy_movement(delta: float, input_vector: Vector2):
+	var horizontal_velocity = Vector2(bat_velocity.x, 0)
+	var horizontal_input_vector = Vector2(input_vector.x, 0)
+	
 	bat_velocity.y += delta * flappy_gravity
 
 	if !flappy_is_input_buffering and Input.is_action_just_pressed("ui_accept"):
@@ -54,25 +58,21 @@ func handle_flappy_movement(delta: float, input_vector: Vector2):
 		flappy_is_input_buffering = true
 		flappy_input_buffer_timer.start()
 		
-	if Input.is_action_pressed("ui_left"):
-		bat_velocity.x += -flappy_horizontal_impulse
-	elif Input.is_action_pressed("ui_right"):
-		bat_velocity.x +=  flappy_horizontal_impulse
-
-	bat_velocity.x = bat_velocity.x + delta * flappy_friction if flappy_is_floaty_horizontal else 0
-
-		
-	if bat_velocity.x <= 3 and bat_velocity.x >= 0 \
-		|| bat_velocity.x >= -3 and bat_velocity.x <= 0:
-		bat_velocity.x = 0
+	if flappy_is_floaty_horizontal:
+		if horizontal_input_vector != Vector2.ZERO:
+			horizontal_velocity = horizontal_velocity.move_toward( \
+				horizontal_input_vector * flappy_horizontal_max_speed, \
+				flappy_horizontal_acceleration * delta)
+	else:
+		if Input.is_action_pressed("ui_left"):
+			horizontal_velocity.x = -flappy_horizontal_max_speed
+		elif Input.is_action_pressed("ui_right"):
+			horizontal_velocity.x = flappy_horizontal_max_speed
 	
-	if bat_velocity.x > 0:
-		bat_velocity.x = clamp(bat_velocity.x, 0, flappy_horizontal_max_speed)
-	elif bat_velocity.x < 0:
-		bat_velocity.x = clamp(bat_velocity.x, -flappy_horizontal_max_speed, 0)
 	
+	bat_velocity = Vector2(horizontal_velocity.x, bat_velocity.y)
+
 	move()
-
 
 func move():
 	# in Godot, upward is negative y, which translates to -1 as a normal
