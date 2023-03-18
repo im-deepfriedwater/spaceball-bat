@@ -17,7 +17,7 @@ export var flappy_horizontal_impulse: float = 35
 export var flappy_horizontal_max_speed: float = 90
 export var flappy_horizontal_acceleration: float = 100
 export var flappy_friction: float = 60
-export var flappy_is_floaty_horizontal: bool = false
+export var flappy_is_horizontal_momentum: bool = false
 onready var flappy_input_buffer_timer := $FlappyInputBufferTimer
 var flappy_is_input_buffering : bool = false
 # Flappy Movement End Region
@@ -46,11 +46,11 @@ func _process(delta: float):
 func handle_linear_movement(delta: float, input_vector: Vector2):
 	pass
 
-# TODO
 func handle_flappy_movement(delta: float, input_vector: Vector2):
 	var horizontal_velocity = Vector2(bat_velocity.x, 0)
 	var horizontal_input_vector = Vector2(input_vector.x, 0)
 	
+	# keep gravity consistent between framerates
 	bat_velocity.y += delta * flappy_gravity
 
 	if !flappy_is_input_buffering and Input.is_action_just_pressed("ui_accept"):
@@ -58,7 +58,7 @@ func handle_flappy_movement(delta: float, input_vector: Vector2):
 		flappy_is_input_buffering = true
 		flappy_input_buffer_timer.start()
 		
-	if flappy_is_floaty_horizontal:
+	if flappy_is_horizontal_momentum:
 		if horizontal_input_vector != Vector2.ZERO:
 			horizontal_velocity = horizontal_velocity.move_toward( \
 				horizontal_input_vector * flappy_horizontal_max_speed, \
@@ -68,6 +68,8 @@ func handle_flappy_movement(delta: float, input_vector: Vector2):
 			horizontal_velocity.x = -flappy_horizontal_max_speed
 		elif Input.is_action_pressed("ui_right"):
 			horizontal_velocity.x = flappy_horizontal_max_speed
+		else:
+			horizontal_velocity.x = 0
 	
 	
 	bat_velocity = Vector2(horizontal_velocity.x, bat_velocity.y)
