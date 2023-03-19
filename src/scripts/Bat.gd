@@ -32,6 +32,8 @@ func _ready():
 	flappy_input_buffer_timer.wait_time = flappy_input_buffer_in_seconds
 	current_movement_type = MovementType.Flappy
 	
+	animation_tree.set("parameters/OneShot/active", true)
+	
 func _process(delta: float):
 	var input_vector := Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

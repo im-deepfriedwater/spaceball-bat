@@ -19,7 +19,7 @@ animation = "BodyIdle"
 fadein_time = 0.0
 autorestart = true
 autorestart_delay = 2.0
-autorestart_random_delay = 20.0
+autorestart_random_delay = 4.0
 
 [sub_resource type="AnimationNodeAnimation" id=23]
 animation = "WingFlap"
@@ -34,7 +34,7 @@ blend_point_1/node = SubResource( 24 )
 blend_point_1/pos = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
-graph_offset = Vector2( -355.224, -283.815 )
+graph_offset = Vector2( -124.818, -321.649 )
 nodes/BodyBlink/node = SubResource( 15 )
 nodes/BodyBlink/position = Vector2( 240, -100 )
 nodes/BodyIdle/node = SubResource( 8 )
@@ -46,7 +46,7 @@ nodes/OneShot/position = Vector2( 440, -260 )
 nodes/WingBlendSpace/node = SubResource( 25 )
 nodes/WingBlendSpace/position = Vector2( 360, 60 )
 nodes/output/position = Vector2( 840, 40 )
-node_connections = [ "OneShot", 0, "BodyIdle", "OneShot", 1, "BodyBlink", "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "output", 0, "BodyWingBlend2" ]
+node_connections = [ "output", 0, "BodyWingBlend2", "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "OneShot", 0, "BodyIdle", "OneShot", 1, "BodyBlink" ]
 
 [sub_resource type="Animation" id=11]
 resource_name = "BodyBlink"
@@ -193,7 +193,7 @@ tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/BodyWingBlend2/blend_amount = 0.5
-parameters/OneShot/active = false
+parameters/OneShot/active = true
 parameters/WingBlendSpace/blend_position = 1.08471
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
