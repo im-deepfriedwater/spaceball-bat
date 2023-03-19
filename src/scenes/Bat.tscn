@@ -1,8 +1,126 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/Bat.gd" type="Script" id=1]
+[ext_resource path="res://assets/characters/bat/far wing.png" type="Texture" id=2]
+[ext_resource path="res://assets/characters/bat/close wing.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/bat/bat body.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Flap"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("FarWing:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 1, 2, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CloseWing:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 1, 2, 2 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FarWing:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CloseWing:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("FarWing:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CloseWing:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Blink"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.125, 0.25, 0.375, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 0, 1, 2, 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
 
 [node name="Bat" type="KinematicBody2D"]
 collision_mask = 6
@@ -11,21 +129,38 @@ script = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../..")
-
 [node name="FlappyInputBufferTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [node name="Graphics" type="Node2D" parent="."]
 
-[node name="PLACEHOLDER" type="ColorRect" parent="Graphics"]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
-color = Color( 0, 1, 0.392157, 1 )
+[node name="WingAnimationPlayer" type="AnimationPlayer" parent="Graphics"]
+anims/Flap = SubResource( 2 )
+anims/Idle = SubResource( 3 )
+anims/RESET = SubResource( 4 )
 
-[node name="Sprite" type="Sprite" parent="Graphics"]
+[node name="BodyAnimationPlayer" type="AnimationPlayer" parent="Graphics"]
+anims/Blink = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="FarWing" type="Sprite" parent="Graphics"]
+texture = ExtResource( 2 )
+hframes = 2
+vframes = 2
+
+[node name="Body" type="Sprite" parent="Graphics"]
+texture = ExtResource( 4 )
+hframes = 2
+vframes = 2
+
+[node name="CloseWing" type="Sprite" parent="Graphics"]
+texture = ExtResource( 3 )
+hframes = 2
+vframes = 2
 
 [connection signal="timeout" from="FlappyInputBufferTimer" to="." method="_on_InputBufferTimer_timeout"]
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]

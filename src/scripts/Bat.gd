@@ -22,7 +22,15 @@ onready var flappy_input_buffer_timer := $FlappyInputBufferTimer
 var flappy_is_input_buffering : bool = false
 # Flappy Movement End Region
 
+# TODO: We'll probably want to use an animation tree if we get 
+# more intricate with animation states
+onready var wing_animation_player := $Graphics/WingAnimationPlayer
+onready var body_animation_player := $Graphics/BodyAnimationPlayer
+
+onready var blink_timer := $BlinkTimer
+
 var bat_velocity := Vector2.ZERO
+var rng := RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,6 +65,7 @@ func handle_flappy_movement(delta: float, input_vector: Vector2):
 		bat_velocity.y = -flappy_vertical_max_speed
 		flappy_is_input_buffering = true
 		flappy_input_buffer_timer.start()
+
 		
 	if flappy_is_horizontal_momentum:
 		if horizontal_input_vector != Vector2.ZERO:
@@ -71,14 +80,26 @@ func handle_flappy_movement(delta: float, input_vector: Vector2):
 		else:
 			horizontal_velocity.x = 0
 	
-	
 	bat_velocity = Vector2(horizontal_velocity.x, bat_velocity.y)
 
 	move()
-
+	
 func move():
 	# in Godot, upward is negative y, which translates to -1 as a normal
 	bat_velocity = move_and_slide(bat_velocity, Vector2(0, -1))
 	
+	if bat_velocity.y > 0:
+		wing_animation_player.play("Flap")
+	else:
+		wing_animation_player.play("Idle")
+	
 func _on_InputBufferTimer_timeout():
 	flappy_is_input_buffering = false
+
+func _on_BlinkTimer_timeout():
+	# random ~20% chance to blink
+	var result := rng.randi_range(0, 10) 
+
+	if result <= 2:
+		body_animation_player.play("Blink")
+	
