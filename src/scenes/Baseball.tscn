@@ -20,3 +20,5 @@ texture = ExtResource( 2 )
 root_node = NodePath("../..")
 
 [node name="Baseball-top" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]

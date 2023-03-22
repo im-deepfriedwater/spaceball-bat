@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/MainBaseballGame.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/ball_diamond_backgroundconcept.png" type="Texture" id=2]
 [ext_resource path="res://scenes/Bat.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Baseball-launcher.gd" type="Script" id=5]
+[ext_resource path="res://scripts/BaseballLauncher.gd" type="Script" id=5]
 
 [node name="MainBaseballGame" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,8 +19,8 @@ texture = ExtResource( 2 )
 [node name="FrontLayer" type="Node2D" parent="."]
 
 [node name="Bat" parent="FrontLayer" instance=ExtResource( 4 )]
-position = Vector2( 192, 84 )
+position = Vector2( 192, 100 )
 
-[node name="Baseball-launcher" type="Node2D" parent="FrontLayer"]
-position = Vector2( 21, 161 )
+[node name="BaseballLauncher" type="Node2D" parent="FrontLayer"]
+position = Vector2( 21, 160 )
 script = ExtResource( 5 )
