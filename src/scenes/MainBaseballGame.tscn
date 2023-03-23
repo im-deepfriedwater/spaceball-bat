@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/MainBaseballGame.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/ball_diamond_backgroundconcept.png" type="Texture" id=2]
@@ -17,8 +17,12 @@ extents = Vector2( 10.75, 90.25 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 11.5, 89.75 )
 
+[sub_resource type="Theme" id=5]
+
 [node name="MainBaseballGame" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="LaunchTimer" type="Timer" parent="."]
 
 [node name="BackLayer" type="Node2D" parent="."]
 
@@ -34,6 +38,7 @@ texture = ExtResource( 2 )
 position = Vector2( 192, 84 )
 
 [node name="BaseballLauncher" type="Node2D" parent="FrontLayer"]
+unique_name_in_owner = true
 position = Vector2( 21, 160 )
 script = ExtResource( 5 )
 
@@ -72,3 +77,15 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBoundaries/Left"]
 position = Vector2( -11.5, 90.25 )
 shape = SubResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
+margin_right = 62.0
+margin_bottom = 15.0
+theme = SubResource( 5 )
+text = "Score: "
+scroll_active = false
+
+[connection signal="launch_baseball" from="." to="FrontLayer/BaseballLauncher" method="_on_MainBaseballGame_launch_baseball"]
+[connection signal="timeout" from="LaunchTimer" to="." method="_on_LaunchTimer_timeout"]

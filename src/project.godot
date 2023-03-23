@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 import/import_plugin/enable_automatic_importer=true
 
+[autoload]
+
+BaseballEventsSingleton="*res://scripts/event_singletons/BaseballEventsSingleton.gd"
+
 [display]
 
 window/size/width=320
