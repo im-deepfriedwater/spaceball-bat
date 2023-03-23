@@ -1,6 +1,7 @@
 extends Node
 
 signal launch_baseball
-signal baseball_caught
+signal catch_baseball
+signal destroy_baseball
 signal game_over
 signal game_paused

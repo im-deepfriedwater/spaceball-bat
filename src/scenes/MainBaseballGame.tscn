@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/MainBaseballGame.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/ball_diamond_backgroundconcept.png" type="Texture" id=2]
+[ext_resource path="res://scripts/ui/Score.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Bat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/BaseballLauncher.gd" type="Script" id=5]
 
@@ -81,11 +82,13 @@ shape = SubResource( 4 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Score" type="RichTextLabel" parent="CanvasLayer"]
-margin_right = 62.0
-margin_bottom = 15.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 131.0
+margin_bottom = 20.0
 theme = SubResource( 5 )
-text = "Score: "
+text = "Score: 0"
 scroll_active = false
+script = ExtResource( 3 )
 
-[connection signal="launch_baseball" from="." to="FrontLayer/BaseballLauncher" method="_on_MainBaseballGame_launch_baseball"]
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_LaunchTimer_timeout"]

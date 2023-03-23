@@ -70,6 +70,12 @@ debug_launch_baseball={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="flying object"
+2d_physics/layer_3="flying object collision area"
+
 [physics]
 
 common/enable_pause_aware_picking=true

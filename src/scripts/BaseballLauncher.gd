@@ -4,9 +4,10 @@ export var TRAJECTORY_IS_PATH_CHANCE = 0.00
 export var BALL_VELOCITY :float = 2.5
 export var BALL_ANGLE_DEGREES = 45
 
-onready var launch_timer = $LaunchTimer
-
 const Baseball = preload("res://scenes/Baseball.tscn")
+
+func _ready():
+	BaseballEventsSingleton.connect("launch_baseball", self, "_on_BaseballEventsSingleton_launch_baseball")
 
 func launch_baseball():
 	#print("launching baseball bby")
@@ -34,6 +35,5 @@ func generate_random_velocity():
 	
 	return launch_vector
 
-
-func _on_MainBaseballGame_launch_baseball():
+func _on_BaseballEventsSingleton_launch_baseball():
 	launch_baseball()
