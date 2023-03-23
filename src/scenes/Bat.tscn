@@ -46,7 +46,7 @@ nodes/OneShot/position = Vector2( 440, -260 )
 nodes/WingBlendSpace/node = SubResource( 25 )
 nodes/WingBlendSpace/position = Vector2( 360, 60 )
 nodes/output/position = Vector2( 840, 40 )
-node_connections = [ "output", 0, "BodyWingBlend2", "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "OneShot", 0, "BodyIdle", "OneShot", 1, "BodyBlink" ]
+node_connections = [ "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "OneShot", 0, "BodyIdle", "OneShot", 1, "BodyBlink", "output", 0, "BodyWingBlend2" ]
 
 [sub_resource type="Animation" id=11]
 resource_name = "BodyBlink"
@@ -193,7 +193,7 @@ tree_root = SubResource( 10 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/BodyWingBlend2/blend_amount = 0.5
-parameters/OneShot/active = true
+parameters/OneShot/active = false
 parameters/WingBlendSpace/blend_position = 1.08471
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
