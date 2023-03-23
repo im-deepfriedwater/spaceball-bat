@@ -74,7 +74,7 @@ debug_launch_baseball={
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="flying object"
-2d_physics/layer_3="flying object collision area"
+2d_physics/layer_3="collectable"
 
 [physics]
 
