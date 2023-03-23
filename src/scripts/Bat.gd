@@ -78,7 +78,7 @@ func handle_flappy_movement(delta: float, input_vector: Vector2):
 			horizontal_velocity.x = 0
 	
 	bat_velocity = Vector2(horizontal_velocity.x, bat_velocity.y)
-
+	
 	move()
 	
 func move():
