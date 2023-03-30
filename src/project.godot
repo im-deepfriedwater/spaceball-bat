@@ -24,6 +24,14 @@ config/name="Baseball Bat"
 run/main_scene="res://scenes/MainBaseballGame.tscn"
 config/icon="res://icon.png"
 
+[aseprite]
+
+import/import_plugin/enable_automatic_importer=true
+
+[autoload]
+
+BaseballEventsSingleton="*res://scripts/event_singletons/BaseballEventsSingleton.gd"
+
 [display]
 
 window/size/width=320
@@ -32,17 +40,41 @@ window/size/test_width=640
 window/size/test_height=360
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg" )
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]
 
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 debug_launch_baseball={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="flying object"
+2d_physics/layer_3="collectable"
 
 [physics]
 
@@ -50,4 +82,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/options/use_nvidia_rect_flicker_workaround=true
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
