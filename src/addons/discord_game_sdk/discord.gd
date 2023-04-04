@@ -258,6 +258,8 @@ func _ready():
 	
 	discore_core_ = DiscordCore.new()
 	if discore_core_:
+		# this is spaceball bat's specific app id from the developer console. 
+		# this ID is safe to check-in. 
 		discore_core_.create(1092665290795528202, CreateFlags.NoRequireDiscord)
 		
 		activity_manager = ActivityManager_.new(discore_core_.get_activity_manager())

@@ -33,7 +33,7 @@ func _physics_process(_delta):
 		move_and_collide(current_velocity , false, true, false)
 		
 		#Apply Gravity
-#		print(global_position)
+		print(global_position)
 		current_velocity.y += BASEBALL_GRAVITY * _delta 
 		if global_position.y > DELETE_Y:
 			queue_free();
