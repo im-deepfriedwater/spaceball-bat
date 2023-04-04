@@ -9,6 +9,8 @@ const Baseball = preload("res://scenes/Baseball.tscn")
 func _ready():
 	BaseballEventsSingleton.connect("launch_baseball", self, "_on_BaseballEventsSingleton_launch_baseball")
 
+	
+	
 func launch_baseball():
 	#print("launching baseball bby")
 	#instanciate a baseball at pos
