@@ -54,37 +54,37 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_core.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordLobby",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordLobbyManager",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby_manager.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordLobbyTransaction",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby_transaction.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordOverlayManager",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_overlay_manager.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordPartySize",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_party_size.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordResult",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_result.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordUser",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_user.gdns"
@@ -132,9 +132,9 @@ import/import_plugin/enable_automatic_importer=true
 
 [autoload]
 
-BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
-DiscordRichPresenceSingleton="*res://scripts/singletons/DiscordRichPresenceSingleton.gd"
 Discord="*res://addons/discord_game_sdk/discord.gd"
+BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
+DiscordActivitySingleton="*res://scripts/singletons/DiscordActivitySingleton.gd"
 
 [display]
 
