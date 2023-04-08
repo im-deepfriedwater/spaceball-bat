@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/Baseball.gd"
 }, {
-"base": "Resource",
-"class": "ChatMessage",
-"language": "GDScript",
-"path": "res://addons/discord_game_sdk/example/lobby/chat_message.gd"
-}, {
 "base": "",
 "class": "DiscordActivity",
 "language": "NativeScript",
@@ -88,20 +83,9 @@ _global_script_classes=[ {
 "class": "DiscordUser",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_user.gdns"
-}, {
-"base": "Resource",
-"class": "GameState",
-"language": "GDScript",
-"path": "res://addons/discord_game_sdk/example/lobby/game_state.gd"
-}, {
-"base": "Resource",
-"class": "Member",
-"language": "GDScript",
-"path": "res://addons/discord_game_sdk/example/lobby/member.gd"
 } ]
 _global_script_class_icons={
 "Baseball": "",
-"ChatMessage": "",
 "DiscordActivity": "",
 "DiscordActivityAssets": "",
 "DiscordActivityManager": "",
@@ -115,9 +99,7 @@ _global_script_class_icons={
 "DiscordOverlayManager": "",
 "DiscordPartySize": "",
 "DiscordResult": "",
-"DiscordUser": "",
-"GameState": "",
-"Member": ""
+"DiscordUser": ""
 }
 
 [application]
@@ -134,7 +116,7 @@ import/import_plugin/enable_automatic_importer=true
 
 Discord="*res://addons/discord_game_sdk/discord.gd"
 BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
-DiscordActivitySingleton="*res://scripts/singletons/DiscordActivitySingleton.gd"
+DiscordRichPresenceSingleton="*res://scripts/singletons/DiscordRichPresenceSingleton.gd"
 
 [display]
 
