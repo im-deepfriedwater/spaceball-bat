@@ -30,7 +30,9 @@ import/import_plugin/enable_automatic_importer=true
 
 [autoload]
 
-BaseballEventsSingleton="*res://scripts/event_singletons/BaseballEventsSingleton.gd"
+Discord="*res://addons/discord_game_sdk/discord.gd"
+BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
+DiscordRichPresenceSingleton="*res://scripts/singletons/DiscordRichPresenceSingleton.gd"
 
 [display]
 

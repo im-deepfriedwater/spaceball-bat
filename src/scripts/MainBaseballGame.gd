@@ -10,6 +10,9 @@ var rng := RandomNumberGenerator.new()
 var baseball_count := 0
 var score := 0
 
+var strikes := 0
+const MAX_STRIKES := 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	BaseballEventsSingleton.connect("catch_baseball", self, "_on_BaseballEventsSingleton_catch_baseball")
@@ -37,4 +40,11 @@ func _on_BaseballEventsSingleton_catch_baseball():
 func _on_BaseballEventsSingleton_destroy_baseball():
 	baseball_count -= 1
 	
+func _on_BaseballEventsSingleton_miss_baseball():
+	strikes += 1
 	
+	if strikes > MAX_STRIKES or strikes == MAX_STRIKES:
+		game_over()
+		
+func game_over():
+	pass
