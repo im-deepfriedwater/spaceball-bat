@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ui/GameOverScreen.gd" type="Script" id=1]
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.764706 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -70.0
+margin_right = 140.0
+margin_bottom = 70.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 280.0
+margin_bottom = 140.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 280.0
+
+[node name="GameOverText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 280.0
+margin_bottom = 45.0
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[tornado radius=1 freq=1] Game Over[/tornado]"
+text = " Game Over"
+
+[node name="ScoreEndText" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+margin_top = 49.0
+margin_right = 280.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[tornado radius=1 freq=1] Score: 42069 [/tornado]"
+text = " Score: 42069 "
+
+[node name="RestartInstructions" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 280.0
+margin_bottom = 135.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[tornado radius=1 freq=1] Press space bar to start a new run [/tornado]"
+text = " Press space bar to start a new run "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 139.0
+margin_right = 280.0
+margin_bottom = 139.0
