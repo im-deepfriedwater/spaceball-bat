@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bat body.png-95a5be51ee1f5b5d2ce7cfa0058c7d9d.stex"
+path="res://.import/bat_version1.png-49eb4519129216b72bbacb84786df31e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/bat/bat body.png"
-dest_files=[ "res://.import/bat body.png-95a5be51ee1f5b5d2ce7cfa0058c7d9d.stex" ]
+source_file="res://assets/characters/bat/export/bat_version1.png"
+dest_files=[ "res://.import/bat_version1.png-49eb4519129216b72bbacb84786df31e.stex" ]
 
 [params]
 

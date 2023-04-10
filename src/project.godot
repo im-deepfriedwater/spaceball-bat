@@ -38,7 +38,7 @@ config/icon="res://icon.png"
 
 [aseprite]
 
-import/import_plugin/enable_automatic_importer=true
+import/import_plugin/enable_automatic_importer=false
 
 [autoload]
 

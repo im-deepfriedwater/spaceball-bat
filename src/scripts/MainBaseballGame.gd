@@ -49,7 +49,7 @@ func _on_BaseballEventsSingleton_miss_baseball():
 	
 	if strikes > MAX_STRIKES or strikes == MAX_STRIKES:
 		game_over()
-		
+
 func game_over():
 	BaseballEventsSingleton.emit_signal("game_over", score)
 	get_tree().paused = true
