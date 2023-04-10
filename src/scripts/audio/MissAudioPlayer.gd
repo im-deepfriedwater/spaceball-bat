@@ -1,4 +1,4 @@
-extends AudioStreamPlayer2D
+extends AudioStreamPlayer
 
 func _ready():
 	BaseballEventsSingleton.connect("miss_baseball", self, "on_BaseballEventsSingleton_miss_baseball")

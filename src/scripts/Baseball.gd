@@ -33,7 +33,7 @@ func _physics_process(_delta):
 		move_and_collide(current_velocity , false, true, false)
 		
 		#Apply Gravity
-#		print(global_position)
+		print(global_position)
 		current_velocity.y += BASEBALL_GRAVITY * _delta 
 		if global_position.y > DELETE_Y:
 			queue_free();
@@ -47,11 +47,11 @@ func addVelocity( vel : Vector2 ):
 func addPath():
 	pass
 
-func on_timeout():
+func on_timeout ():
 	sprite.scale = Vector2(1, 1)
 	collision_shape.disabled = false 
 
-func _on_Area2D_body_entered(body: Node):
+func _on_Area2D_body_entered(body):
 	BaseballEventsSingleton.emit_signal("catch_baseball")
 	queue_free()
 

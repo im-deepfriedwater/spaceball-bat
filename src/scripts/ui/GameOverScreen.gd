@@ -1,6 +1,5 @@
 extends Control
 
-
 onready var animation_player = $AnimationPlayer
 onready var score_end_text = get_node("%ScoreEndText")
 

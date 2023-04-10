@@ -165,12 +165,14 @@ script = ExtResource( 9 )
 
 [node name="AudioLayer" type="Node2D" parent="."]
 
-[node name="CatchAudioPlayer" type="AudioStreamPlayer2D" parent="AudioLayer"]
+[node name="CatchAudioPlayer" type="AudioStreamPlayer" parent="AudioLayer"]
 stream = ExtResource( 13 )
+volume_db = -15.0
 script = ExtResource( 11 )
 
-[node name="MissAudioPlayer" type="AudioStreamPlayer2D" parent="AudioLayer"]
+[node name="MissAudioPlayer" type="AudioStreamPlayer" parent="AudioLayer"]
 stream = ExtResource( 14 )
+volume_db = -15.0
 script = ExtResource( 12 )
 
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_LaunchTimer_timeout"]

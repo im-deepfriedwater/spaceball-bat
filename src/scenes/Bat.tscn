@@ -9,13 +9,13 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "BodyBlink"
-
 [sub_resource type="AnimationNodeAnimation" id=8]
 animation = "BodyIdle"
 
 [sub_resource type="AnimationNodeBlend2" id=7]
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "EyesBlink"
 
 [sub_resource type="AnimationNodeOneShot" id=16]
 fadein_time = 0.0
@@ -36,19 +36,19 @@ blend_point_1/node = SubResource( 24 )
 blend_point_1/pos = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
-graph_offset = Vector2( -124.818, -321.649 )
-nodes/BodyBlink/node = SubResource( 15 )
-nodes/BodyBlink/position = Vector2( 240, -100 )
+graph_offset = Vector2( -335.385, -223.771 )
 nodes/BodyIdle/node = SubResource( 8 )
 nodes/BodyIdle/position = Vector2( 220, -220 )
 nodes/BodyWingBlend2/node = SubResource( 7 )
 nodes/BodyWingBlend2/position = Vector2( 620, -20 )
+nodes/EyesBlink/node = SubResource( 15 )
+nodes/EyesBlink/position = Vector2( 240, -100 )
 nodes/OneShot/node = SubResource( 16 )
 nodes/OneShot/position = Vector2( 440, -260 )
 nodes/WingBlendSpace/node = SubResource( 25 )
 nodes/WingBlendSpace/position = Vector2( 360, 60 )
 nodes/output/position = Vector2( 840, 40 )
-node_connections = [ "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "OneShot", 0, "BodyIdle", "OneShot", 1, "BodyBlink", "output", 0, "BodyWingBlend2" ]
+node_connections = [ "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "OneShot", 0, "BodyIdle", "OneShot", 1, "EyesBlink", "output", 0, "BodyWingBlend2" ]
 
 [sub_resource type="Animation" id=12]
 resource_name = "BodyIdle"
@@ -210,6 +210,18 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Graphics/Border:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
