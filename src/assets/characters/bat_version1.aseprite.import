@@ -2,13 +2,11 @@
 
 importer="aseprite_wizard.plugin"
 type="SpriteFrames"
-path="res://.import/bat_version1.aseprite-14b03fe585b5748c2ad8ffb13da21a52.res"
+valid=false
 
 [deps]
 
 source_file="res://assets/characters/bat_version1.aseprite"
-dest_files=[ "res://.import/bat_version1.aseprite-14b03fe585b5748c2ad8ffb13da21a52.res" ]
-
 [params]
 
 split_layers=false
