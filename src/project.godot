@@ -49,40 +49,50 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_core.gdns"
 }, {
-"base": "Reference",
+"base": "",
 "class": "DiscordLobby",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby.gdns"
 }, {
-"base": "Reference",
+"base": "",
 "class": "DiscordLobbyManager",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby_manager.gdns"
 }, {
-"base": "Reference",
+"base": "",
 "class": "DiscordLobbyTransaction",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby_transaction.gdns"
 }, {
-"base": "Reference",
+"base": "",
 "class": "DiscordOverlayManager",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_overlay_manager.gdns"
 }, {
-"base": "Reference",
+"base": "",
 "class": "DiscordPartySize",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_party_size.gdns"
 }, {
-"base": "Reference",
+"base": "",
 "class": "DiscordResult",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_result.gdns"
 }, {
-"base": "Reference",
+"base": "",
 "class": "DiscordUser",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_user.gdns"
+}, {
+"base": "Reference",
+"class": "SceneEnum",
+"language": "GDScript",
+"path": "res://scripts/enums/SceneEnum.gd"
+}, {
+"base": "Reference",
+"class": "TextUtils",
+"language": "GDScript",
+"path": "res://scripts/ui/TextUtils.gd"
 } ]
 _global_script_class_icons={
 "Baseball": "",
@@ -99,7 +109,9 @@ _global_script_class_icons={
 "DiscordOverlayManager": "",
 "DiscordPartySize": "",
 "DiscordResult": "",
-"DiscordUser": ""
+"DiscordUser": "",
+"SceneEnum": "",
+"TextUtils": ""
 }
 
 [application]
@@ -115,8 +127,9 @@ import/import_plugin/enable_automatic_importer=true
 [autoload]
 
 Discord="*res://addons/discord_game_sdk/discord.gd"
-BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
 DiscordRichPresenceSingleton="*res://scripts/singletons/DiscordRichPresenceSingleton.gd"
+SceneSwitcherSingleton="*res://scripts/SceneSwitcherSingleton.gd"
+BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
 
 [display]
 

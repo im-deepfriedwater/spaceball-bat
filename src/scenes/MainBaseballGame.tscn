@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/MainBaseballGame.gd" type="Script" id=1]
 [ext_resource path="res://assets/backgrounds/ball_diamond_backgroundconcept.png" type="Texture" id=2]
@@ -6,6 +6,14 @@
 [ext_resource path="res://scenes/Bat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/BaseballLauncher.gd" type="Script" id=5]
 [ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=6]
+[ext_resource path="res://scenes/UI/GameOverScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/themes/ui_theme.tres" type="Theme" id=8]
+[ext_resource path="res://scripts/ui/Strikes.gd" type="Script" id=9]
+[ext_resource path="res://scripts/ui/GameUI.gd" type="Script" id=10]
+[ext_resource path="res://scripts/audio/CatchAudioPlayer.gd" type="Script" id=11]
+[ext_resource path="res://scripts/audio/MissAudioPlayer.gd" type="Script" id=12]
+[ext_resource path="res://assets/sounds/PickupBaseball.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/sounds/BaseballMiss.wav" type="AudioStream" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160.5, 25 )
@@ -16,10 +24,11 @@ extents = Vector2( 161, 10.5 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10.75, 90.25 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 28.25, 114.5 )
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 11.5, 89.75 )
-
-[sub_resource type="Theme" id=5]
 
 [node name="MainBaseballGame" type="Node2D"]
 script = ExtResource( 1 )
@@ -45,10 +54,9 @@ position = Vector2( 21, 160 )
 script = ExtResource( 5 )
 
 [node name="CollisionBoundaries" type="Node2D" parent="."]
-visible = false
 
 [node name="Bottom" type="StaticBody2D" parent="CollisionBoundaries"]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBoundaries/Bottom"]
@@ -56,7 +64,7 @@ position = Vector2( 159.5, 155 )
 shape = SubResource( 1 )
 
 [node name="Top" type="StaticBody2D" parent="CollisionBoundaries"]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBoundaries/Top"]
@@ -65,15 +73,24 @@ shape = SubResource( 2 )
 
 [node name="Right" type="StaticBody2D" parent="CollisionBoundaries"]
 position = Vector2( 32, 35 )
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBoundaries/Right"]
 position = Vector2( 299.25, 53.75 )
 shape = SubResource( 3 )
 
+[node name="BaseballBoundary" type="Area2D" parent="CollisionBoundaries"]
+position = Vector2( 32, 35 )
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBoundaries/BaseballBoundary"]
+position = Vector2( 328, 55 )
+shape = SubResource( 5 )
+
 [node name="Left" type="StaticBody2D" parent="CollisionBoundaries"]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBoundaries/Left"]
@@ -81,6 +98,9 @@ position = Vector2( -11.5, 90.25 )
 shape = SubResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource( 7 )]
+pause_mode = 2
 
 [node name="PauseScreen" type="Control" parent="CanvasLayer"]
 pause_mode = 2
@@ -103,14 +123,56 @@ margin_right = 23.0
 margin_bottom = 40.0
 text = "Paused"
 
-[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 131.0
-margin_bottom = 20.0
-theme = SubResource( 5 )
+[node name="GameUI" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/GameUI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_top = 11.0
+margin_right = 150.0
+margin_bottom = 27.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GameUI/MarginContainer"]
+margin_right = 300.0
+margin_bottom = 16.0
+size_flags_vertical = 3
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer/GameUI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 148.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 8 )
 text = "Score: 0"
 scroll_active = false
 script = ExtResource( 3 )
+
+[node name="Strikes" type="RichTextLabel" parent="CanvasLayer/GameUI/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 152.0
+margin_right = 300.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 8 )
+text = "Strikes: "
+script = ExtResource( 9 )
+
+[node name="AudioLayer" type="Node2D" parent="."]
+
+[node name="CatchAudioPlayer" type="AudioStreamPlayer" parent="AudioLayer"]
+stream = ExtResource( 13 )
+volume_db = -15.0
+script = ExtResource( 11 )
+
+[node name="MissAudioPlayer" type="AudioStreamPlayer" parent="AudioLayer"]
+stream = ExtResource( 14 )
+volume_db = -15.0
+script = ExtResource( 12 )
 
 [connection signal="timeout" from="LaunchTimer" to="." method="_on_LaunchTimer_timeout"]
