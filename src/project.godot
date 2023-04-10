@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Baseball",
 "language": "GDScript",
 "path": "res://scripts/Baseball.gd"
+}, {
+"base": "Reference",
+"class": "SceneEnum",
+"language": "GDScript",
+"path": "res://scripts/enums/SceneEnum.gd"
+}, {
+"base": "Reference",
+"class": "TextUtils",
+"language": "GDScript",
+"path": "res://scripts/ui/TextUtils.gd"
 } ]
 _global_script_class_icons={
-"Baseball": ""
+"Baseball": "",
+"SceneEnum": "",
+"TextUtils": ""
 }
 
 [application]
@@ -30,9 +42,8 @@ import/import_plugin/enable_automatic_importer=true
 
 [autoload]
 
-Discord="*res://addons/discord_game_sdk/discord.gd"
-BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
-DiscordRichPresenceSingleton="*res://scripts/singletons/DiscordRichPresenceSingleton.gd"
+BaseballEventsSingleton="*res://scripts/event_singletons/BaseballEventsSingleton.gd"
+SceneSwitcherSingleton="*res://scripts/SceneSwitcherSingleton.gd"
 
 [display]
 
@@ -83,6 +94,8 @@ ui_pause={
 2d_physics/layer_1="player"
 2d_physics/layer_2="flying object"
 2d_physics/layer_3="collectable"
+2d_physics/layer_4="player boundary"
+2d_physics/layer_5="baseball boundary"
 
 [physics]
 

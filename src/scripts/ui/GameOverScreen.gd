@@ -1,9 +1,12 @@
 extends Control
 
-var main_game_scene := preload("res://scenes/MainBaseballGame.tscn")
+
+onready var animation_player = $AnimationPlayer
+onready var score_end_text = get_node("%ScoreEndText")
+
 var current_scene = null
 
-var is_game_over := false
+var is_ready_for_restart := false
 
 # https://docs.godotengine.org/en/3.5/tutorials/scripting/singletons_autoload.html#custom-scene-switcher
 func _ready():
@@ -12,27 +15,17 @@ func _ready():
 	BaseballEventsSingleton.connect("game_over", self, "on_BaseballEventsSingleton_game_over")
 
 func _unhandled_input(event):
-	if !is_game_over:
+	if !is_ready_for_restart:
 		return
 
-	if Input.is_action_just_pressed("ui_select"):
-		call_deferred(deferred_restart_game_scene())
+	if !is_ready_for_restart and Input.is_action_just_pressed("ui_select"):
+		animation_player.play("ShowSkip")
+	elif is_ready_for_restart and Input.is_action_just_pressed("ui_select"):
+		SceneSwitcherSingleton.goto_scene(SceneEnum.Scenes.MainBaseballGame)
 		
-func on_BaseballEventsSingleton_game_over():
-	visible = true
-	is_game_over = true
+func on_BaseballEventsSingleton_game_over(score):
+	score_end_text.text = "Score: %s" % score
+	animation_player.play("Show")
 
-func deferred_restart_game_scene():
-	current_scene.free()
-
-	# Instance the new scene.
-	current_scene = main_game_scene.instance()
-
-	# Add it to the active scene, as child of root.
-	get_tree().get_root().add_child(current_scene)
-
-	# Optionally, to make it compatible with the SceneTree.change_scene() API.
-	get_tree().set_current_scene(current_scene)
-	
-
-
+func anim_on_show_finished():
+	is_ready_for_restart = true
