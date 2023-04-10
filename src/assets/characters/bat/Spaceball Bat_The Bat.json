@@ -1,0 +1,76 @@
+{ "frames": [
+   {
+    "filename": "Spaceball Bat_The Bat 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "sourceSize": { "w": 42, "h": 37 },
+    "duration": 100
+   },
+   {
+    "filename": "Spaceball Bat_The Bat 1.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "sourceSize": { "w": 42, "h": 37 },
+    "duration": 100
+   },
+   {
+    "filename": "Spaceball Bat_The Bat 2.aseprite",
+    "frame": { "x": 42, "y": 0, "w": 42, "h": 37 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "sourceSize": { "w": 42, "h": 37 },
+    "duration": 100
+   },
+   {
+    "filename": "Spaceball Bat_The Bat 3.aseprite",
+    "frame": { "x": 84, "y": 0, "w": 42, "h": 37 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "sourceSize": { "w": 42, "h": 37 },
+    "duration": 100
+   },
+   {
+    "filename": "Spaceball Bat_The Bat 4.aseprite",
+    "frame": { "x": 0, "y": 37, "w": 42, "h": 37 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "sourceSize": { "w": 42, "h": 37 },
+    "duration": 100
+   },
+   {
+    "filename": "Spaceball Bat_The Bat 5.aseprite",
+    "frame": { "x": 42, "y": 37, "w": 42, "h": 37 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "sourceSize": { "w": 42, "h": 37 },
+    "duration": 100
+   },
+   {
+    "filename": "Spaceball Bat_The Bat 6.aseprite",
+    "frame": { "x": 42, "y": 37, "w": 42, "h": 37 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 37 },
+    "sourceSize": { "w": 42, "h": 37 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "Spaceball Bat_The Bat.png",
+  "format": "RGBA8888",
+  "size": { "w": 126, "h": 74 },
+  "scale": "1",
+  "frameTags": [
+  ]
+ }
+}

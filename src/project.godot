@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "Baseball",
 "language": "GDScript",
 "path": "res://scripts/Baseball.gd"
+}, {
+"base": "Reference",
+"class": "SceneEnum",
+"language": "GDScript",
+"path": "res://scripts/enums/SceneEnum.gd"
+}, {
+"base": "Reference",
+"class": "TextUtils",
+"language": "GDScript",
+"path": "res://scripts/ui/TextUtils.gd"
 } ]
 _global_script_class_icons={
-"Baseball": ""
+"Baseball": "",
+"SceneEnum": "",
+"TextUtils": ""
 }
 
 [application]
@@ -31,6 +43,7 @@ import/import_plugin/enable_automatic_importer=true
 [autoload]
 
 BaseballEventsSingleton="*res://scripts/event_singletons/BaseballEventsSingleton.gd"
+SceneSwitcherSingleton="*res://scripts/SceneSwitcherSingleton.gd"
 
 [display]
 

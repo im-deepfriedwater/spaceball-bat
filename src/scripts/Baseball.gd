@@ -56,6 +56,15 @@ func _on_Area2D_body_entered(body):
 	queue_free()
 
 
+func _on_Area2D_area_entered(area):
+	baseball_miss()
+
+func baseball_miss():
+
+	BaseballEventsSingleton.emit_signal("miss_baseball")
+
 # called during the exit logic when this node is queued to be freed
 func _on_Baseball_child_exiting_tree(node):
 	BaseballEventsSingleton.emit_signal("destroy_baseball")
+	
+

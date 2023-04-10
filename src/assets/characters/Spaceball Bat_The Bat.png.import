@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/far wing.png-d814e4844d17ccf37bfaa422be3c06ad.stex"
+path="res://.import/Spaceball Bat_The Bat.png-5bd81484a8f68dde5b52663eee631976.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/bat/far wing.png"
-dest_files=[ "res://.import/far wing.png-d814e4844d17ccf37bfaa422be3c06ad.stex" ]
+source_file="res://assets/characters/Spaceball Bat_The Bat.png"
+dest_files=[ "res://.import/Spaceball Bat_The Bat.png-5bd81484a8f68dde5b52663eee631976.stex" ]
 
 [params]
 
