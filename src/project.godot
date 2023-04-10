@@ -38,7 +38,7 @@ config/icon="res://icon.png"
 
 [aseprite]
 
-import/import_plugin/enable_automatic_importer=false
+import/import_plugin/enable_automatic_importer=true
 
 [autoload]
 
@@ -94,8 +94,6 @@ ui_pause={
 2d_physics/layer_1="player"
 2d_physics/layer_2="flying object"
 2d_physics/layer_3="collectable"
-2d_physics/layer_4="player boundary"
-2d_physics/layer_5="baseball boundary"
 
 [physics]
 
