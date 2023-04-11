@@ -114,13 +114,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.764706 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PauseScreen"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -23.0
-margin_top = 15.0
-margin_right = 23.0
-margin_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/PauseScreen/CenterContainer"]
+margin_left = 130.0
+margin_top = 84.0
+margin_right = 190.0
+margin_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 60, 11 )
+theme = ExtResource( 8 )
 text = "Paused"
 
 [node name="GameUI" type="Control" parent="CanvasLayer"]
