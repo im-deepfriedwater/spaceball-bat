@@ -46,7 +46,7 @@ nodes/OneShot/position = Vector2( 440, -260 )
 nodes/WingBlendSpace/node = SubResource( 25 )
 nodes/WingBlendSpace/position = Vector2( 360, 60 )
 nodes/output/position = Vector2( 840, 40 )
-node_connections = [ "output", 0, "BodyWingBlend2", "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "OneShot", 0, "BodyIdle", "OneShot", 1, "BodyBlink" ]
+node_connections = [ "OneShot", 0, "BodyIdle", "OneShot", 1, "BodyBlink", "BodyWingBlend2", 0, "OneShot", "BodyWingBlend2", 1, "WingBlendSpace", "output", 0, "BodyWingBlend2" ]
 
 [sub_resource type="Animation" id=11]
 resource_name = "BodyBlink"
