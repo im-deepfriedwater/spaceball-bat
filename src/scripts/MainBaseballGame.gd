@@ -39,6 +39,8 @@ func _on_BaseballEventsSingleton_launch_baseball():
 func _on_BaseballEventsSingleton_catch_baseball():
 	score += 100
 	score_ui.set_score(score)
+	BaseballEventsSingleton.emit_signal("score_updated", score)
+
 
 func _on_BaseballEventsSingleton_destroy_baseball():
 	baseball_count -= 1

@@ -8,4 +8,11 @@ export_presets.cfg
 .mono/
 data_*/
 
+# discord dll ignores
+**/*/discord_game_sdk.bundle
+**/*/discord_game_sdk.dll
+**/*/discord_game_sdk.dll.lib
+**/*/discord_game_sdk.dylib
+**/*/discord_game_sdk.so
+
 builds/
