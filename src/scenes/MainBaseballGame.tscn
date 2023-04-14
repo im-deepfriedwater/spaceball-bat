@@ -9,7 +9,7 @@
 [ext_resource path="res://scripts/baseball/background/BgBaseballLauncher.gd" type="Script" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 160.5, 25 )
+extents = Vector2( 160.5, 11 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 161, 10.5 )
@@ -29,6 +29,12 @@ script = ExtResource( 1 )
 
 [node name="BackLayer" type="Node2D" parent="."]
 
+[node name="BgBaseballLaunch" type="Node2D" parent="BackLayer"]
+position = Vector2( 210, 61 )
+script = ExtResource( 7 )
+BALL_VELOCITY = 0.9
+BALL_ANGLE_DEGREES = 190
+
 [node name="Background" type="Sprite" parent="BackLayer"]
 visible = false
 position = Vector2( 160, 90 )
@@ -37,12 +43,6 @@ texture = ExtResource( 2 )
 [node name="Background2" type="Sprite" parent="BackLayer"]
 position = Vector2( 160, 90 )
 texture = ExtResource( 6 )
-
-[node name="BgBaseballLaunch" type="Node2D" parent="BackLayer"]
-position = Vector2( 210, 61 )
-script = ExtResource( 7 )
-BALL_VELOCITY = 0.5
-BALL_ANGLE_DEGREES = 180
 
 [node name="MiddleLayer" type="Node2D" parent="."]
 
@@ -56,14 +56,13 @@ position = Vector2( 21, 160 )
 script = ExtResource( 5 )
 
 [node name="CollisionBoundaries" type="Node2D" parent="."]
-visible = false
 
 [node name="Bottom" type="StaticBody2D" parent="CollisionBoundaries"]
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionBoundaries/Bottom"]
-position = Vector2( 159.5, 155 )
+position = Vector2( 159.5, 191 )
 shape = SubResource( 1 )
 
 [node name="Top" type="StaticBody2D" parent="CollisionBoundaries"]

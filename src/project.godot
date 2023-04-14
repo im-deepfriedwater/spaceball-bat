@@ -37,6 +37,7 @@ import/import_plugin/enable_automatic_importer=true
 [autoload]
 
 BaseballEventsSingleton="*res://scripts/event_singletons/BaseballEventsSingleton.gd"
+Globals="*res://scripts/singletons/globals.gd"
 
 [display]
 
