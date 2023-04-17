@@ -42,25 +42,20 @@ func _physics_process(_delta):
 			global_position.y < TOP_DESTROY_BOUNDS ||
 			global_position.x < LEFT_DESTROY_BOUNDS ||
 			global_position.x > RIGHT_DESTROY_BOUNDS):
-			print("destroyed ball")
 			delete_ball()
 
 func addVelocity( vel : Vector2 ):
-	#print("adding velocity to baseball . . . ")
 	current_velocity = vel;
 	
 
 func on_timeout():
-	print("timeout hit")
 	sprite.scale = Vector2(
 		sprite.scale.x +BASEBALL_SCALE_STEP,
 		sprite.scale.y + BASEBALL_SCALE_STEP)
-	print(sprite.scale.x)
 	if sprite.scale.x > MAX_BASEBALL_SCALE :
 		sprite.scale = Vector2(MAX_BASEBALL_SCALE,MAX_BASEBALL_SCALE)
 	current_velocity = current_velocity * BASEBALL_VELOCITY_SCALER_STEP
 
 func delete_ball():
-	print(global_position)
 	BaseballEventsSingleton.emit_signal("destroy_background_baseball",global_position, current_velocity)
 	queue_free()

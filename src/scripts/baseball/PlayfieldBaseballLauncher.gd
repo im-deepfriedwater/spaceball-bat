@@ -5,14 +5,13 @@ export var BALL_VELOCITY :float = 2.5
 export var BALL_ANGLE_DEGREES = 45
 export var BALL_ANGLE_RADS = 0
 
-const Baseball = preload("res://scenes/Baseball.tscn")
+const Baseball = preload("res://scenes/baseball/Baseball.tscn")
 
 func _ready():
-#	BaseballEventsSingleton.connect("launch_baseball", self, "_on_BaseballEventsSingleton_launch_baseball")
+	#We wait for the background baseball to be destroyed, then spawn a new one in the foreground
 	BaseballEventsSingleton.connect("destroy_background_baseball", self , "launch_from_bg")
 
 func launch_from_bg(destroyed_position: Vector2, destroyed_velocity: Vector2):
-	print("launch from bg hit")
 	var flipped_velocity = Vector2(destroyed_velocity.x, destroyed_velocity.y * -1.0)
 	var launch_angle = flipped_velocity.angle()
 	var start_x = (destroyed_position.x - ( Globals.SCREEN_WIDTH / 2.0 )) * -1.0 # reflects X position over midpoint of screen
@@ -26,13 +25,12 @@ func launch_from_bg(destroyed_position: Vector2, destroyed_velocity: Vector2):
 	launch_baseball()
 	
 func launch_baseball():
-	#print("launching baseball bby")
-	#instanciate a baseball at pos
 	var baseball= Baseball.instance()
 	baseball.global_position = global_position
 	baseball.set_as_toplevel(true)
 	add_child(baseball)
 	
+	#todo - should we have pathed balls? or change gravity per ball differently?
 	var ball_type_roll = randf()
 	
 	#RNG trajectory type
@@ -45,8 +43,6 @@ func generate_path():
 	pass
 	
 func generate_random_velocity():
-	#print("physics based ball")
-	#var launch_vector = Vector2(BALL_VELOCITY,0).rotated( - BALL_ANGLE_DEGREES * PI/180)
 	var launch_vector = Vector2(BALL_VELOCITY,0).rotated( - BALL_ANGLE_RADS)
 	
 	return launch_vector

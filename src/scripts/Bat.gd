@@ -13,6 +13,7 @@ var current_movement_type = MovementType.Linear
 export var flappy_vertical_max_speed: float =  55
 export var flappy_gravity: float = 105
 export var flappy_input_buffer_in_seconds: float = 0.05
+# export var flappy_input_buffer_in_seconds: float = 0.30
 export var flappy_horizontal_impulse: float = 35
 export var flappy_horizontal_max_speed: float = 90
 export var flappy_horizontal_acceleration: float = 100
@@ -60,6 +61,7 @@ func handle_flappy_movement(delta: float, input_vector: Vector2):
 
 	if !flappy_is_input_buffering and Input.is_action_just_pressed("ui_accept"):
 		bat_velocity.y += -flappy_vertical_max_speed
+		#bat_velocity.y = -flappy_vertical_max_speed
 		flappy_is_input_buffering = true
 		flappy_input_buffer_timer.start()
 
