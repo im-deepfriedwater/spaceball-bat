@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/baseball/background/BgBaseball.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "PlayfieldBaseball",
-"language": "GDScript",
-"path": "res://scripts/baseball/PlayfieldBaseball.gd"
-}, {
 "base": "",
 "class": "DiscordActivity",
 "language": "NativeScript",
@@ -89,6 +84,11 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_user.gdns"
 }, {
+"base": "KinematicBody2D",
+"class": "PlayfieldBaseball",
+"language": "GDScript",
+"path": "res://scripts/baseball/PlayfieldBaseball.gd"
+}, {
 "base": "Reference",
 "class": "SceneEnum",
 "language": "GDScript",
@@ -101,7 +101,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BgBaseball": "",
-"PlayfieldBaseball": "",
 "DiscordActivity": "",
 "DiscordActivityAssets": "",
 "DiscordActivityManager": "",
@@ -116,6 +115,7 @@ _global_script_class_icons={
 "DiscordPartySize": "",
 "DiscordResult": "",
 "DiscordUser": "",
+"PlayfieldBaseball": "",
 "SceneEnum": "",
 "TextUtils": ""
 }
