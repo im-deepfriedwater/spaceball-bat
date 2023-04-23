@@ -2,11 +2,13 @@
 
 importer="aseprite_wizard.plugin"
 type="SpriteFrames"
-valid=false
+path="res://.import/Spaceball Bat_The Bat.aseprite-eba9536e817a67b4ef2fe5b8d2f9e8df.res"
 
 [deps]
 
 source_file="res://assets/characters/Spaceball Bat_The Bat.aseprite"
+dest_files=[ "res://.import/Spaceball Bat_The Bat.aseprite-eba9536e817a67b4ef2fe5b8d2f9e8df.res" ]
+
 [params]
 
 split_layers=false

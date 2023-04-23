@@ -15,6 +15,7 @@ func _ready():
 
 
 func _on_bg_baseball_launch_event():
+	print("launch hit")
 	launch_baseball()
 	
 func launch_baseball():

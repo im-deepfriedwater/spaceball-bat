@@ -134,9 +134,9 @@ import/import_plugin/enable_automatic_importer=true
 
 Discord="*res://addons/discord_game_sdk/discord.gd"
 DiscordRichPresenceSingleton="*res://scripts/singletons/DiscordRichPresenceSingleton.gd"
+Globals="*res://scripts/singletons/globals.gd"
 SceneSwitcherSingleton="*res://scripts/singletons/SceneSwitcherSingleton.gd"
 BaseballEventsSingleton="*res://scripts/singletons/event_singletons/BaseballEventsSingleton.gd"
-Globals="*res://scripts/singletons/globals.gd"
 
 [display]
 

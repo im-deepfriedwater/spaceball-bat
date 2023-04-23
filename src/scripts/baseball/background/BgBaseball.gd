@@ -37,12 +37,12 @@ func _ready():
 #	pass
 
 func _physics_process(_delta):
-		move_and_collide(current_velocity , false, true, false)
-		if (global_position.y > BOTTOM_DESTROY_BOUNDS || 
-			global_position.y < TOP_DESTROY_BOUNDS ||
-			global_position.x < LEFT_DESTROY_BOUNDS ||
-			global_position.x > RIGHT_DESTROY_BOUNDS):
-			delete_ball()
+	move_and_collide(current_velocity , false, true, false)
+	if (global_position.y > BOTTOM_DESTROY_BOUNDS || 
+		global_position.y < TOP_DESTROY_BOUNDS ||
+		global_position.x < LEFT_DESTROY_BOUNDS ||
+		global_position.x > RIGHT_DESTROY_BOUNDS):
+		delete_ball()
 
 func addVelocity( vel : Vector2 ):
 	current_velocity = vel;

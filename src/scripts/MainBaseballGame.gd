@@ -28,6 +28,7 @@ func set_random_launch_time():
 	
 func _on_LaunchTimer_timeout():
 	if baseball_count < MAX_BASEBALL_COUNT:
+		print("emmitting launch baseball")
 		BaseballEventsSingleton.emit_signal("launch_baseball")
 		baseball_count += 1
 		set_random_launch_time()
