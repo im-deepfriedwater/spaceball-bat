@@ -36,7 +36,9 @@ blend_point_1/node = SubResource( 24 )
 blend_point_1/pos = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
-graph_offset = Vector2( -335.385, -223.771 )
+graph_offset = Vector2( -147.101, -220.028 )
+nodes/BodyBlink/node = SubResource( 15 )
+nodes/BodyBlink/position = Vector2( 240, -100 )
 nodes/BodyIdle/node = SubResource( 8 )
 nodes/BodyIdle/position = Vector2( 220, -220 )
 nodes/BodyWingBlend2/node = SubResource( 7 )
